@@ -5,25 +5,25 @@ lprec <- make.lp(0, 2)
 
 lprec
 
-#setting the objective function to maximization
+#setting the objective function to max
 
 lp.control(lprec, sense="max")
 
-#defining the objective function and the constraints
+#defining constraints along with the objective
 
 set.objfn(lprec, c(14.3, 6))
 add.constraint(lprec, c(12, 21), "<=", 1500)
 add.constraint(lprec, c(11, 3), "<=", 400)
 add.constraint(lprec, c(1, 1), "<=", 50)
 
-# basic problem definition
+# setting the problem definition
 
 lprec
 
 #Solving
 solve(lprec)
 
-#Getting Optimized Profit
+#Generating the optimal profit
 
 get.objective(lprec)
 
