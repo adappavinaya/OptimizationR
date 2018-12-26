@@ -1,0 +1,31 @@
+
+require(lpSolveAPI)
+
+lprec <- make.lp(0, 2)
+
+lprec
+
+#setting the objective function to maximization
+
+lp.control(lprec, sense="max")
+
+#defining the objective function and the constraints
+
+set.objfn(lprec, c(14.3, 6))
+add.constraint(lprec, c(12, 21), "<=", 1500)
+add.constraint(lprec, c(11, 3), "<=", 400)
+add.constraint(lprec, c(1, 1), "<=", 50)
+
+# basic problem definition
+
+lprec
+
+#Solving
+solve(lprec)
+
+#Getting Optimized Profit
+
+get.objective(lprec)
+
+#Getting how many pounds of apples and oranges
+get.variables(lprec)
